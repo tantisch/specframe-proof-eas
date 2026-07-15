@@ -1,0 +1,61 @@
+
+[0m  DataResolver[0m
+  [32m  ✔[0m[90m should revert when attesting with wrong data[0m[33m (42ms)[0m
+  [32m  ✔[0m[90m should allow attesting with correct data[0m[31m (427ms)[0m
+
+[0m  ExpirationTimeResolver[0m
+  [32m  ✔[0m[90m should revert when attesting with a wrong expiration time[0m
+  [32m  ✔[0m[90m should allow attesting with the correct expiration time[0m[31m (483ms)[0m
+
+[0m  PayingResolver[0m
+  [32m  ✔[0m[90m should incentivize attesters[0m[31m (232ms)[0m
+  [32m  ✔[0m[90m should revert when attempting to send any ETH[0m
+[0m    with attestations[0m
+    [32m  ✔[0m[90m should revert when attempting to revoke an attestation without repaying the incentive[0m
+    [32m  ✔[0m[90m should revoke attestations[0m[31m (146ms)[0m
+    [32m  ✔[0m[90m should revoke attestations and refund any remainder[0m[31m (165ms)[0m
+    [32m  ✔[0m[90m should revert when attempting to revert with more value than was actually sent[0m
+    [32m  ✔[0m[90m should allow reverting with the correct value when accidentally sending too much[0m[31m (138ms)[0m
+
+[0m  RecipientResolver[0m
+  [32m  ✔[0m[90m should revert when attesting to a wrong recipient[0m
+  [32m  ✔[0m[90m should allow attesting to the correct recipient[0m[31m (312ms)[0m
+
+[0m  RevocationResolver[0m
+[0m    when revocations are allowed[0m
+    [32m  ✔[0m[90m should allow revoking an existing attestation[0m[31m (207ms)[0m
+[0m    when revocations are not allowed[0m
+    [32m  ✔[0m[90m should revert when attempting to revoke an existing attestation[0m
+
+[0m  SchemaResolver[0m
+[0m    construction[0m
+    [32m  ✔[0m[90m should revert when initialized with an invalid EAS[0m
+    [32m  ✔[0m[90m should be properly initialized[0m
+[0m    resolution[0m
+[0m      with a standard resolver[0m
+      [32m  ✔[0m[90m should revert when the attestation callback is invoked directly[0m
+      [32m  ✔[0m[90m should revert when the attestation revocation callback is invoked directly[0m
+[0m        as an EAS[0m
+        [32m  ✔[0m[90m should revert when attempting to multi attest with invalid data lengths[0m
+        [32m  ✔[0m[90m should revert when attempting to multi revert with invalid data lengths[0m
+        [32m  ✔[0m[90m should revert when attempting to multi attest with more value than was actually sent[0m
+        [32m  ✔[0m[90m should revert when attempting to multi revoke with more value than was actually sent[0m
+[0m      with a non-payable resolver[0m
+      [32m  ✔[0m[90m should revert when sending[0m
+[0m      without any resolvers[0m
+      [32m  ✔[0m[90m should revert when sending[0m
+
+[0m  TokenResolver[0m
+  [32m  ✔[0m[90m should revert when attesting with the wrong token amount[0m[33m (47ms)[0m
+  [32m  ✔[0m[90m should allow attesting with the correct token amount[0m[31m (436ms)[0m
+
+[0m  ValueResolver[0m
+  [32m  ✔[0m[90m should revert when attesting with the wrong value[0m[33m (66ms)[0m
+  [32m  ✔[0m[90m should allow attesting with the correct value[0m[31m (750ms)[0m
+  [32m  ✔[0m[90m should revert when attempting to attest with more value than was actually sent[0m
+  [32m  ✔[0m[90m should allow attesting with the correct value when accidentally sending too much[0m[31m (575ms)[0m
+
+
+[92m [0m[32m 178 passing[0m[90m (50s)[0m
+
+TEST_RC=0
