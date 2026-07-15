@@ -1,0 +1,29 @@
+[
+    {
+        "filename": "../lib/eas-contracts/contracts/EAS.sol",
+        "sourceroot": "..",
+        "solc": "/home/agent/.svm/0.8.29/solc-0.8.29",
+        "solc_optimize": true,
+        "solc_remappings": [
+            "@openzeppelin/contracts/=../lib/openzeppelin-contracts/contracts/"
+        ]
+    },
+    {
+        "filename": "../lib/eas-contracts/contracts/SchemaRegistry.sol",
+        "sourceroot": "..",
+        "solc": "/home/agent/.svm/0.8.29/solc-0.8.29",
+        "solc_optimize": true,
+        "solc_remappings": [
+            "@openzeppelin/contracts/=../lib/openzeppelin-contracts/contracts/"
+        ]
+    },
+    {
+        "filename": "../lib/eas-contracts/contracts/eip1271/EIP1271Verifier.sol",
+        "sourceroot": "..",
+        "solc": "/home/agent/.svm/0.8.29/solc-0.8.29",
+        "solc_optimize": true,
+        "solc_remappings": [
+            "@openzeppelin/contracts/=../lib/openzeppelin-contracts/contracts/"
+        ]
+    }
+]

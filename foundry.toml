@@ -16,3 +16,27 @@ remappings = [
 runs = 64
 depth = 128
 fail_on_revert = false
+
+# Lighter settings for the mutation campaign (phase 1 classification).
+# Survivors get re-run under the default profile before being reported.
+[profile.mutation]
+solc = "0.8.29"
+src = "lib/eas-contracts/contracts"
+test = "test"
+out = "out"
+libs = ["lib"]
+optimizer = true
+optimizer_runs = 1000000
+remappings = [
+    "forge-std/=lib/forge-std/src/",
+    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+    "@eas/=lib/eas-contracts/contracts/",
+]
+
+[profile.mutation.fuzz]
+runs = 48
+
+[profile.mutation.invariant]
+runs = 8
+depth = 64
+fail_on_revert = false

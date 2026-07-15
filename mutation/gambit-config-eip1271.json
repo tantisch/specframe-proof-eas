@@ -1,0 +1,14 @@
+[
+  {
+    "filename": "../lib/eas-contracts/contracts/eip1271/EIP1271Verifier.sol",
+    "sourceroot": "..",
+    "solc": "/home/agent/.svm/0.8.29/solc-0.8.29",
+    "solc_optimize": true,
+    "solc_allow_paths": [
+      "/home/agent/build/proof/specframe-proof-eas/lib"
+    ],
+    "solc_remappings": [
+      "@openzeppelin/contracts/=../lib/openzeppelin-contracts/contracts/"
+    ]
+  }
+]
