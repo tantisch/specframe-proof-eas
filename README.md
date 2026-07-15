@@ -17,11 +17,20 @@ mutation grading. This repo adds exactly that layer:
 2. **Invariant specification** — 20 machine-checkable properties of the
    attestation/revocation/value/delegation state machines, each with source
    references and a test plan. → [`spec/INVARIANTS.md`](spec/INVARIANTS.md)
-3. **Foundry invariant & fuzz suite** — the spec, mechanized: a
-   never-reverting fuzz handler with ghost state drives EAS through random
-   call sequences while 9 invariant functions (covering INV-A1..A6, R1..R4,
-   T1/T2, S1/S2, V1, B2) check storage against the ghosts after every call.
-   → [`test/invariant/`](test/invariant/), run log in [`runs/`](runs/)
+3. **Foundry invariant & fuzz suite** — the spec, mechanized, in two layers:
+   - *Stateful:* a never-reverting fuzz handler with ghost state drives EAS
+     through random call sequences while 9 invariant functions (covering
+     INV-A1..A6, R1..R4, T1/T2, S1/S2, V1, B2) check storage against the
+     ghosts after every call. → [`test/invariant/`](test/invariant/)
+   - *Stateless:* 22 targeted fuzz properties for the surfaces sequence
+     fuzzing reaches poorly — EIP712 delegation & replay protection
+     (INV-D1..D4, real `vm.sign` signatures incl. forged-signer and
+     stolen-attribution probes), resolver ETH conservation (INV-V1..V3,
+     exact balance accounting incl. a force-fed-ETH pin), and batch
+     atomicity (INV-B1, one bad item at a fuzzed position must roll back
+     already-written storage). → [`test/fuzz/`](test/fuzz/)
+
+   Run logs for both layers live in [`runs/`](runs/).
 4. **Mutation kill matrix** — Gambit mutants vs. the suite, graded per
    invariant, so the spec's coverage is measured rather than asserted.
    → `mutation/` *(in progress)*
@@ -41,10 +50,10 @@ process, not this repo.
 | Baseline coverage snapshot | done — 100% stmt/branch/func/line ([`baseline/`](baseline/)) |
 | Invariant spec | done — [`spec/INVARIANTS.md`](spec/INVARIANTS.md) |
 | Foundry invariant suite (core state machines) | done — 9/9 pass, 64 runs × 128 depth ([`runs/`](runs/)) |
-| Fuzz suite (delegation INV-D*, value INV-V*, batch INV-B*) | next |
-| Mutation kill matrix | queued |
+| Fuzz suite (delegation INV-D*, value INV-V*, batch INV-B1) | done — 22/22 pass, 512 runs each ([`runs/`](runs/)) |
+| Mutation kill matrix | next |
 
-### Reproduce the invariant run
+### Reproduce the invariant + fuzz runs
 
 ```bash
 git clone --recurse-submodules https://github.com/tantisch/specframe-proof-eas

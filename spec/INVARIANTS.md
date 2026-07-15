@@ -114,10 +114,13 @@ schema resolvers or is refunded to `msg.sender` (`EAS.sol:559-690, 713-722`).
 *Test:* invariant handler with payable attest/revoke/multi variants against
 payable and non-payable resolvers; assert
 `sum(resolver deltas) + refund == msg.value` per call and `eas.balance == 0`
-as a global invariant (modulo force-fed ETH, which we test separately: a
-`selfdestruct`-funded EAS must still not let anyone *withdraw* pre-existing
-balance beyond the documented refund path — the comment at `EAS.sol:122-125`
-concedes stuck ETH becomes spendable headroom; we pin that exact behavior).
+as a global invariant (modulo force-fed ETH, which we test separately: the
+comment at `EAS.sol:122-125` explains the `availableValue` ratchet exists
+precisely so stuck ETH can never become spendable headroom — it starts at
+`msg.value`, so a request for `value > msg.value` reverts `InsufficientValue`
+even when the contract balance could cover it, and force-fed ETH never moves.
+Verified in `test/fuzz/ValueConservation.t.sol::testFuzz_V1_forceFedEth_isNotSpendable`;
+an earlier draft of this spec misread the comment as conceding the opposite).
 
 ### INV-V2 — No payment without a payable destination
 If `S.resolver == address(0)` or `resolver.isPayable() == false`, any request

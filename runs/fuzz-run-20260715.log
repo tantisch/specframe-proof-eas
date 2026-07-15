@@ -1,0 +1,36 @@
+Compiling 1 files with Solc 0.8.29
+Solc 0.8.29 finished in 3.47s
+Compiler run successful!
+
+Ran 6 tests for test/fuzz/BatchAtomicity.t.sol:BatchAtomicityFuzz
+[PASS] testFuzz_B1_danglingRefUID_revertsWholeBatch(uint256,uint256,bytes32) (runs: 512, μ: 498253, ~: 426156)
+[PASS] testFuzz_B1_expiredItem_revertsWholeBatch(uint256,uint256,uint64) (runs: 512, μ: 298868, ~: 220782)
+[PASS] testFuzz_B1_multiRevoke_duplicateUid_rollsBackAll(uint256,uint256) (runs: 512, μ: 798292, ~: 813190)
+[PASS] testFuzz_B1_resolverVeto_revertsWholeBatch(uint256) (runs: 512, μ: 759379, ~: 780374)
+[PASS] testFuzz_B1_unpayableValueItem_revertsWholeBatch(uint256,uint256,uint96) (runs: 512, μ: 757522, ~: 780183)
+[PASS] testFuzz_B1_unregisteredSchemaBlock_revertsWholeCall(uint256,bytes32) (runs: 512, μ: 493848, ~: 409911)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 1.33s (1.33s CPU time)
+
+Ran 9 tests for test/fuzz/Delegation.t.sol:DelegationFuzz
+[PASS] testFuzz_D1_delegatedAttest_consumesExactlyOneNonce(uint256,bytes) (runs: 512, μ: 238288, ~: 227480)
+[PASS] testFuzz_D1_increaseNonce_strictlyMonotonic(uint256,uint256,uint256) (runs: 512, μ: 39296, ~: 39569)
+[PASS] testFuzz_D2_increaseNonce_invalidatesPendingSignatures(uint256,uint256,bytes) (runs: 512, μ: 249927, ~: 243096)
+[PASS] testFuzz_D2_replay_alwaysReverts(uint256,bytes) (runs: 512, μ: 244894, ~: 234076)
+[PASS] testFuzz_D3_attributionIsSignerExact(uint256,address,bytes) (runs: 512, μ: 242766, ~: 231378)
+[PASS] testFuzz_D3_delegatedRevoke_requiresOriginalAttester(uint256,uint256,bytes) (runs: 512, μ: 244448, ~: 236553)
+[PASS] testFuzz_D3_forgedAttesterClaim_reverts(uint256,uint256,bytes) (runs: 512, μ: 50136, ~: 50074)
+[PASS] testFuzz_D4_expiredDeadline_revertsWithoutBurningNonce(uint256,uint64,bytes) (runs: 512, μ: 25521, ~: 25449)
+[PASS] testFuzz_D4_zeroDeadline_neverExpires(uint256,uint64,bytes) (runs: 512, μ: 238579, ~: 231743)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 4.28s (4.28s CPU time)
+
+Ran 7 tests for test/fuzz/ValueConservation.t.sol:ValueConservationFuzz
+[PASS] testFuzz_V1_forceFedEth_isNotSpendable(uint96,uint96) (runs: 512, μ: 377878, ~: 378053)
+[PASS] testFuzz_V1_revoke_conservesValue(uint96,uint96) (runs: 512, μ: 233905, ~: 234642)
+[PASS] testFuzz_V1_singleAttest_conservesValue(uint96,uint96) (runs: 512, μ: 221183, ~: 221920)
+[PASS] testFuzz_V2_valueAtNonPayableResolver_reverts(uint96) (runs: 512, μ: 178097, ~: 177968)
+[PASS] testFuzz_V2_valueWithoutResolver_reverts(uint96) (runs: 512, μ: 174967, ~: 174838)
+[PASS] testFuzz_V3_multiAttest_batchAccounting(uint96[4],uint96) (runs: 512, μ: 862544, ~: 863307)
+[PASS] testFuzz_V3_overspendingBatch_reverts(uint96,uint96,uint96) (runs: 512, μ: 325110, ~: 325174)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 976.14ms (974.29ms CPU time)
+
+Ran 3 test suites in 6.59s (6.58s CPU time): 22 tests passed, 0 failed, 0 skipped (22 total tests)
