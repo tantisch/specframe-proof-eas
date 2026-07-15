@@ -1,0 +1,18 @@
+[profile.default]
+solc = "0.8.29"
+src = "lib/eas-contracts/contracts"
+test = "test"
+out = "out"
+libs = ["lib"]
+optimizer = true
+optimizer_runs = 1000000
+remappings = [
+    "forge-std/=lib/forge-std/src/",
+    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+    "@eas/=lib/eas-contracts/contracts/",
+]
+
+[invariant]
+runs = 64
+depth = 128
+fail_on_revert = false
