@@ -1,0 +1,363 @@
+! Corepack is about to download https://registry.npmjs.org/pnpm/-/pnpm-11.13.0.tgz
+$ hardhat coverage --solcoverjs .solcover.ts
+
+Version
+=======
+> solidity-coverage: v0.8.12
+
+Instrumenting for coverage...
+=============================
+
+> Common.sol
+> EAS.sol
+> eip1271/EIP1271Verifier.sol
+> eip712/proxy/EIP712Proxy.sol
+> eip712/proxy/examples/PermissionedEIP712Proxy.sol
+> IEAS.sol
+> Indexer.sol
+> ISchemaRegistry.sol
+> ISemver.sol
+> resolver/examples/AttestationResolver.sol
+> resolver/examples/AttesterResolver.sol
+> resolver/examples/DataResolver.sol
+> resolver/examples/ExpirationTimeResolver.sol
+> resolver/examples/PayingResolver.sol
+> resolver/examples/RecipientResolver.sol
+> resolver/examples/RevocationResolver.sol
+> resolver/examples/TokenResolver.sol
+> resolver/examples/ValueResolver.sol
+> resolver/ISchemaResolver.sol
+> resolver/SchemaResolver.sol
+> SchemaRegistry.sol
+> Semver.sol
+
+Coverage skipped for:
+=====================
+
+> tests/eip1271/TestEIP1271Signer.sol
+> tests/eip1271/TestEIP1271Verifier.sol
+> tests/eip712/proxy/TestEIP712Proxy.sol
+> tests/TestEAS.sol
+> tests/TestERC20Token.sol
+> tests/TestSchemaResolver.sol
+
+Compilation:
+============
+
+Nothing to compile
+No need to generate any newer typings.
+
+Network Info
+============
+> HardhatEVM: v2.23.0
+> network:    hardhat
+
+
+[0m[0m
+[0m  EAS[0m
+[0m    construction[0m
+    [32m  ✔[0m[90m should revert when initialized with an empty schema registry[0m[31m (119ms)[0m
+    [32m  ✔[0m[90m should be properly initialized[0m[33m (40ms)[0m
+[0m    attesting[0m
+    [32m  ✔[0m[90m should revert when multi delegation attesting with inconsistent input lengths[0m[33m (71ms)[0m
+[0m      via direct attestation[0m
+      [32m  ✔[0m[90m should revert when attesting to an unregistered schema[0m[31m (173ms)[0m
+[0m        with registered schemas[0m
+        [32m  ✔[0m[90m should revert when multi attesting using invalid parameters[0m[31m (128ms)[0m
+        [32m  ✔[0m[90m should revert when multi attesting to multiple unregistered schemas[0m[31m (328ms)[0m
+        [32m  ✔[0m[90m should revert when attesting with passed expiration time[0m[31m (311ms)[0m
+        [32m  ✔[0m[90m should allow attesting to an empty recipient[0m[31m (2924ms)[0m
+        [32m  ✔[0m[90m should allow self attestations[0m[31m (1857ms)[0m
+        [32m  ✔[0m[90m should allow multiple attestations[0m[31m (1332ms)[0m
+        [32m  ✔[0m[90m should allow multiple attestations to the same schema[0m[31m (1596ms)[0m
+        [32m  ✔[0m[90m should allow attestation without expiration time[0m[31m (1542ms)[0m
+        [32m  ✔[0m[90m should allow attestation without any data[0m[31m (1584ms)[0m
+        [32m  ✔[0m[90m should store referenced attestation[0m[31m (1845ms)[0m
+        [32m  ✔[0m[90m should generate unique UIDs for similar attestations[0m[31m (1845ms)[0m
+        [32m  ✔[0m[90m should allow multi layered attestations[0m[31m (2830ms)[0m
+        [32m  ✔[0m[90m should revert when attesting to non-existing attestations[0m[31m (502ms)[0m
+        [32m  ✔[0m[90m should revert when attesting to empty schemas[0m[31m (519ms)[0m
+[0m        with an irrevocable schema[0m
+        [32m  ✔[0m[90m should revert when attempting to make a revocable attestation[0m[31m (283ms)[0m
+[0m      via delegated attestation[0m
+      [32m  ✔[0m[90m should revert when attesting to an unregistered schema[0m[31m (239ms)[0m
+[0m        with registered schemas[0m
+        [32m  ✔[0m[90m should revert when multi attesting using invalid parameters[0m[31m (181ms)[0m
+        [32m  ✔[0m[90m should revert when multi attesting to multiple unregistered schemas[0m[31m (536ms)[0m
+        [32m  ✔[0m[90m should revert when attesting with passed expiration time[0m[31m (946ms)[0m
+        [32m  ✔[0m[90m should allow attesting to an empty recipient[0m[31m (4365ms)[0m
+        [32m  ✔[0m[90m should allow self attestations[0m[31m (2752ms)[0m
+        [32m  ✔[0m[90m should allow multiple attestations[0m[31m (2155ms)[0m
+        [32m  ✔[0m[90m should allow multiple attestations to the same schema[0m[31m (2442ms)[0m
+        [32m  ✔[0m[90m should allow attestation without expiration time[0m[31m (2641ms)[0m
+        [32m  ✔[0m[90m should allow attestation without any data[0m[31m (3036ms)[0m
+        [32m  ✔[0m[90m should store referenced attestation[0m[31m (2969ms)[0m
+        [32m  ✔[0m[90m should generate unique UIDs for similar attestations[0m[31m (3235ms)[0m
+        [32m  ✔[0m[90m should allow multi layered attestations[0m[31m (4952ms)[0m
+        [32m  ✔[0m[90m should revert when attesting to non-existing attestations[0m[31m (1224ms)[0m
+        [32m  ✔[0m[90m should revert when attesting to empty schemas[0m[31m (788ms)[0m
+[0m        with an irrevocable schema[0m
+        [32m  ✔[0m[90m should revert when attempting to make a revocable attestation[0m[31m (788ms)[0m
+[0m      via delegated-proxy attestation[0m
+      [32m  ✔[0m[90m should revert when attesting to an unregistered schema[0m[31m (619ms)[0m
+[0m        with registered schemas[0m
+        [32m  ✔[0m[90m should revert when multi attesting using invalid parameters[0m[31m (172ms)[0m
+        [32m  ✔[0m[90m should revert when multi attesting to multiple unregistered schemas[0m[31m (893ms)[0m
+        [32m  ✔[0m[90m should revert when attesting with passed expiration time[0m[31m (1328ms)[0m
+        [32m  ✔[0m[90m should allow attesting to an empty recipient[0m[31m (5844ms)[0m
+        [32m  ✔[0m[90m should allow self attestations[0m[31m (3529ms)[0m
+        [32m  ✔[0m[90m should allow multiple attestations[0m[31m (2289ms)[0m
+        [32m  ✔[0m[90m should allow multiple attestations to the same schema[0m[31m (3876ms)[0m
+        [32m  ✔[0m[90m should allow attestation without expiration time[0m[31m (3363ms)[0m
+        [32m  ✔[0m[90m should allow attestation without any data[0m[31m (3330ms)[0m
+        [32m  ✔[0m[90m should store referenced attestation[0m[31m (3415ms)[0m
+        [32m  ✔[0m[90m should allow multi layered attestations[0m[31m (5656ms)[0m
+        [32m  ✔[0m[90m should revert when attesting to non-existing attestations[0m[31m (1000ms)[0m
+        [32m  ✔[0m[90m should revert when attesting to empty schemas[0m[31m (1202ms)[0m
+[0m        with an irrevocable schema[0m
+        [32m  ✔[0m[90m should revert when attempting to make a revocable attestation[0m[31m (864ms)[0m
+[0m    revocation[0m
+    [32m  ✔[0m[90m should revert when multi delegation revoking with inconsistent input lengths[0m[31m (875ms)[0m
+[0m      via direct revocation[0m
+      [32m  ✔[0m[90m should revert when revoking a non-existing attestation[0m[31m (134ms)[0m
+      [32m  ✔[0m[90m should revert when revoking a someone's else attestation[0m[31m (128ms)[0m
+      [32m  ✔[0m[90m should allow to revoke existing attestations[0m[31m (781ms)[0m
+      [32m  ✔[0m[90m should revert when revoking an already revoked attestation[0m[31m (391ms)[0m
+      [32m  ✔[0m[90m should revert when attempting to revoke attestations while specifying the wrong schema[0m[31m (309ms)[0m
+      [32m  ✔[0m[90m should revert when attempting to revoke attestations while specifying an empty schema[0m[31m (153ms)[0m
+[0m        with irrevocable attestations[0m
+        [32m  ✔[0m[90m should revert when revoking[0m[31m (390ms)[0m
+[0m        with an irrevocable schema[0m
+        [32m  ✔[0m[90m should revert when revoking[0m[31m (127ms)[0m
+[0m      via delegated revocation[0m
+      [32m  ✔[0m[90m should revert when revoking a non-existing attestation[0m[31m (400ms)[0m
+      [32m  ✔[0m[90m should revert when revoking a someone's else attestation[0m[31m (367ms)[0m
+      [32m  ✔[0m[90m should allow to revoke existing attestations[0m[31m (1154ms)[0m
+      [32m  ✔[0m[90m should revert when revoking an already revoked attestation[0m[31m (966ms)[0m
+      [32m  ✔[0m[90m should revert when attempting to revoke attestations while specifying the wrong schema[0m[31m (434ms)[0m
+      [32m  ✔[0m[90m should revert when attempting to revoke attestations while specifying an empty schema[0m[31m (365ms)[0m
+[0m        with irrevocable attestations[0m
+        [32m  ✔[0m[90m should revert when revoking[0m[31m (326ms)[0m
+[0m        with an irrevocable schema[0m
+        [32m  ✔[0m[90m should revert when revoking[0m[31m (371ms)[0m
+[0m      via delegated-proxy revocation[0m
+      [32m  ✔[0m[90m should revert when revoking a non-existing attestation[0m[31m (156ms)[0m
+      [32m  ✔[0m[90m should revert when revoking a someone's else attestation[0m[31m (130ms)[0m
+      [32m  ✔[0m[90m should allow to revoke existing attestations[0m[31m (5917ms)[0m
+      [32m  ✔[0m[90m should revert when revoking an already revoked attestation[0m[31m (2694ms)[0m
+      [32m  ✔[0m[90m should revert when attempting to revoke attestations while specifying the wrong schema[0m[31m (776ms)[0m
+      [32m  ✔[0m[90m should revert when attempting to revoke attestations while specifying an empty schema[0m[31m (691ms)[0m
+[0m        with irrevocable attestations[0m
+        [32m  ✔[0m[90m should revert when revoking[0m[31m (699ms)[0m
+[0m        with an irrevocable schema[0m
+        [32m  ✔[0m[90m should revert when revoking[0m[31m (589ms)[0m
+[0m    timestamping[0m
+    [32m  ✔[0m[90m should timestamp a single data[0m[33m (44ms)[0m
+    [32m  ✔[0m[90m should timestamp multiple data[0m[31m (118ms)[0m
+    [32m  ✔[0m[90m should revert when attempting to timestamp the same data twice[0m
+    [32m  ✔[0m[90m should revert when attempting to timestamp the same multiple data twice[0m[33m (50ms)[0m
+    [32m  ✔[0m[90m should return 0 for any data that wasn't timestamped[0m
+[0m    revoking offchain[0m
+    [32m  ✔[0m[90m should revoke a single data[0m[31m (121ms)[0m
+    [32m  ✔[0m[90m should revoke multiple data[0m[31m (212ms)[0m
+    [32m  ✔[0m[90m should revert when attempting to revoke the same data twice[0m[33m (47ms)[0m
+    [32m  ✔[0m[90m should not revert when attempting to revoke the same data twice with two different accounts[0m[33m (65ms)[0m
+    [32m  ✔[0m[90m should revert when attempting to timestamp the same multiple data twice[0m[31m (97ms)[0m
+    [32m  ✔[0m[90m should return 0 for any data that wasn't timestamped[0m
+
+[0m  Indexer[0m
+[0m    construction[0m
+    [32m  ✔[0m[90m should revert when initialized with an empty EAS[0m
+    [32m  ✔[0m[90m should be properly initialized[0m
+[0m    indexing[0m
+[0m      without any attestations[0m
+      [32m  ✔[0m[90m should revert when attempting to index a non-existing attestation[0m[33m (38ms)[0m
+      [32m  ✔[0m[90m should revert when attempting to index multiple non-existing attestation[0m[33m (38ms)[0m
+[0m      with attestations[0m
+      [32m  ✔[0m[90m should index an attestation[0m[31m (1088ms)[0m
+      [32m  ✔[0m[90m should index multiple attestations[0m[31m (1120ms)[0m
+      [32m  ✔[0m[90m should revert when attempting to index multiple non-existing attestation[0m[31m (391ms)[0m
+      [32m  ✔[0m[90m should handle gracefully an attempt to index the same attestation twice[0m[31m (1176ms)[0m
+      [32m  ✔[0m[90m should handle gracefully an attempt to index same attestations twice[0m[31m (338ms)[0m
+      [32m  ✔[0m[90m should revert when providing invalid pagination indexes[0m[31m (1135ms)[0m
+      [32m  ✔[0m[90m should adapt the length of the query if it is too long[0m[31m (1253ms)[0m
+
+[0m  SchemaRegistry[0m
+[0m    construction[0m
+    [32m  ✔[0m[90m should report a version[0m
+[0m    registration[0m
+    [32m  ✔[0m[90m should allow to register a schema[0m[31m (164ms)[0m
+    [32m  ✔[0m[90m should allow to register a schema without a schema[0m[31m (88ms)[0m
+    [32m  ✔[0m[90m should allow to register a schema without a resolver[0m[31m (93ms)[0m
+    [32m  ✔[0m[90m should allow to register a schema without neither a schema or a resolver[0m[33m (73ms)[0m
+    [32m  ✔[0m[90m should not allow to register the same schema and resolver twice[0m[33m (42ms)[0m
+[0m    schema querying[0m
+    [32m  ✔[0m[90m should return a schema[0m[33m (60ms)[0m
+    [32m  ✔[0m[90m should return an empty schema given non-existing id[0m
+
+[0m  EIP1271Verifier[0m
+[0m    construction[0m
+    [32m  ✔[0m[90m should be properly initialized[0m
+[0m    by a eoa signer[0m
+[0m      verify attest[0m
+      [32m  ✔[0m[90m should verify delegated attestation request[0m[31m (154ms)[0m
+      [32m  ✔[0m[90m should revert when verifying delegated attestation request with an expired deadline[0m
+      [32m  ✔[0m[90m should revert when verifying delegated attestation request with a wrong signature[0m[31m (97ms)[0m
+[0m      verify revoke[0m
+      [32m  ✔[0m[90m should verify delegated revocation request[0m[31m (105ms)[0m
+      [32m  ✔[0m[90m should revert when verifying delegated attestation request with an expired deadline[0m
+      [32m  ✔[0m[90m should revert when verifying delegated revocation request with a wrong signature[0m[33m (54ms)[0m
+[0m      increasing nonces[0m
+      [32m  ✔[0m[90m should allow users to increase their nonces[0m[33m (38ms)[0m
+      [32m  ✔[0m[90m should revert when users attempt to decrease/keep their nonces[0m
+[0m    by a contract signer[0m
+[0m      verify attest[0m
+      [32m  ✔[0m[90m should verify delegated attestation request[0m[31m (392ms)[0m
+      [32m  ✔[0m[90m should revert when verifying delegated attestation request with an expired deadline[0m
+      [32m  ✔[0m[90m should revert when verifying delegated attestation request with a wrong signature[0m[31m (144ms)[0m
+[0m      verify revoke[0m
+      [32m  ✔[0m[90m should verify delegated revocation request[0m[31m (151ms)[0m
+      [32m  ✔[0m[90m should revert when verifying delegated attestation request with an expired deadline[0m
+      [32m  ✔[0m[90m should revert when verifying delegated revocation request with a wrong signature[0m[31m (98ms)[0m
+[0m      increasing nonces[0m
+      [32m  ✔[0m[90m should allow users to increase their nonces[0m
+      [32m  ✔[0m[90m should revert when users attempt to decrease/keep their nonces[0m
+
+[0m  EIP712Proxy[0m
+  [32m  ✔[0m[90m should revert when multi delegation revoking with inconsistent input lengths[0m[31m (89ms)[0m
+[0m    construction[0m
+    [32m  ✔[0m[90m should revert when initialized with an empty schema registry[0m
+    [32m  ✔[0m[90m should be properly initialized[0m[33m (60ms)[0m
+[0m    verify attest[0m
+    [32m  ✔[0m[90m should verify delegated attestation request[0m[33m (70ms)[0m
+    [32m  ✔[0m[90m should revert when verifying delegated attestation request with a wrong signature[0m[31m (114ms)[0m
+    [32m  ✔[0m[90m should revert when verifying delegated attestation request with a used signature[0m[33m (67ms)[0m
+    [32m  ✔[0m[90m should revert when verifying delegated attestation request with an expired deadline[0m
+    [32m  ✔[0m[90m should revert when multi delegation attesting with inconsistent input lengths[0m[33m (41ms)[0m
+[0m    verify revoke[0m
+    [32m  ✔[0m[90m should verify delegated revocation request[0m[31m (133ms)[0m
+    [32m  ✔[0m[90m should verify delegated revocation request sent from a different account[0m[31m (106ms)[0m
+    [32m  ✔[0m[90m should revert when verifying delegated revocation request with a wrong signature[0m[33m (38ms)[0m
+    [32m  ✔[0m[90m should revert when verifying delegated revocation request with a used signature[0m[31m (160ms)[0m
+    [32m  ✔[0m[90m should revert when verifying delegated revocation request with an expired deadline[0m
+    [32m  ✔[0m[90m should revert when verifying delegated revocation request from a different account[0m
+
+[0m  PermissionedEIP712Proxy[0m
+[0m    construction[0m
+    [32m  ✔[0m[90m should be properly initialized[0m[33m (60ms)[0m
+[0m    attest[0m
+    [32m  ✔[0m[90m should allow the owner to attest[0m[31m (3094ms)[0m
+    [32m  ✔[0m[90m should revert when a non-owner attempts to attest[0m[31m (113ms)[0m
+[0m    revoke[0m
+    [32m  ✔[0m[90m should allow the owner to revoke[0m[31m (6480ms)[0m
+    [32m  ✔[0m[90m should revert when a non-owner attempts to revoke[0m[33m (52ms)[0m
+
+[0m  AttestationResolver[0m
+[0m    non-existing attestation[0m
+    [32m  ✔[0m[90m should revert[0m[31m (1259ms)[0m
+[0m    invalid attestation[0m
+    [32m  ✔[0m[90m should revert[0m[31m (854ms)[0m
+[0m    valid attestation[0m
+    [32m  ✔[0m[90m should allow attesting[0m[31m (4586ms)[0m
+[0m    byte utils[0m
+    [32m  ✔[0m[90m should revert on invalid input[0m
+
+[0m  AttesterResolver[0m
+  [32m  ✔[0m[90m should revert when attesting via the wrong attester[0m[31m (477ms)[0m
+  [32m  ✔[0m[90m should allow attesting via the correct attester[0m[31m (3591ms)[0m
+
+[0m  DataResolver[0m
+  [32m  ✔[0m[90m should revert when attesting with wrong data[0m[31m (821ms)[0m
+  [32m  ✔[0m[90m should allow attesting with correct data[0m[31m (4318ms)[0m
+
+[0m  ExpirationTimeResolver[0m
+  [32m  ✔[0m[90m should revert when attesting with a wrong expiration time[0m[31m (748ms)[0m
+  [32m  ✔[0m[90m should allow attesting with the correct expiration time[0m[31m (3208ms)[0m
+
+[0m  PayingResolver[0m
+  [32m  ✔[0m[90m should incentivize attesters[0m[31m (4103ms)[0m
+  [32m  ✔[0m[90m should revert when attempting to send any ETH[0m[31m (778ms)[0m
+[0m    with attestations[0m
+    [32m  ✔[0m[90m should revert when attempting to revoke an attestation without repaying the incentive[0m[31m (159ms)[0m
+    [32m  ✔[0m[90m should revoke attestations[0m[31m (1243ms)[0m
+    [32m  ✔[0m[90m should revoke attestations and refund any remainder[0m[31m (4774ms)[0m
+    [32m  ✔[0m[90m should revert when attempting to revert with more value than was actually sent[0m[31m (144ms)[0m
+    [32m  ✔[0m[90m should allow reverting with the correct value when accidentally sending too much[0m[31m (4148ms)[0m
+
+[0m  RecipientResolver[0m
+  [32m  ✔[0m[90m should revert when attesting to a wrong recipient[0m[31m (610ms)[0m
+  [32m  ✔[0m[90m should allow attesting to the correct recipient[0m[31m (3068ms)[0m
+
+[0m  RevocationResolver[0m
+[0m    when revocations are allowed[0m
+    [32m  ✔[0m[90m should allow revoking an existing attestation[0m[31m (1097ms)[0m
+[0m    when revocations are not allowed[0m
+    [32m  ✔[0m[90m should revert when attempting to revoke an existing attestation[0m[31m (303ms)[0m
+
+[0m  SchemaResolver[0m
+[0m    construction[0m
+    [32m  ✔[0m[90m should revert when initialized with an invalid EAS[0m[33m (45ms)[0m
+    [32m  ✔[0m[90m should be properly initialized[0m
+[0m    resolution[0m
+[0m      with a standard resolver[0m
+      [32m  ✔[0m[90m should revert when the attestation callback is invoked directly[0m[33m (44ms)[0m
+      [32m  ✔[0m[90m should revert when the attestation revocation callback is invoked directly[0m
+[0m        as an EAS[0m
+        [32m  ✔[0m[90m should revert when attempting to multi attest with invalid data lengths[0m
+        [32m  ✔[0m[90m should revert when attempting to multi revert with invalid data lengths[0m
+        [32m  ✔[0m[90m should revert when attempting to multi attest with more value than was actually sent[0m
+        [32m  ✔[0m[90m should revert when attempting to multi revoke with more value than was actually sent[0m
+[0m      with a non-payable resolver[0m
+      [32m  ✔[0m[90m should revert when sending[0m[31m (234ms)[0m
+[0m      without any resolvers[0m
+      [32m  ✔[0m[90m should revert when sending[0m[31m (454ms)[0m
+
+[0m  TokenResolver[0m
+  [32m  ✔[0m[90m should revert when attesting with the wrong token amount[0m[31m (654ms)[0m
+  [32m  ✔[0m[90m should allow attesting with the correct token amount[0m[31m (3425ms)[0m
+
+[0m  ValueResolver[0m
+  [32m  ✔[0m[90m should revert when attesting with the wrong value[0m[31m (694ms)[0m
+  [32m  ✔[0m[90m should allow attesting with the correct value[0m[31m (6541ms)[0m
+  [32m  ✔[0m[90m should revert when attempting to attest with more value than was actually sent[0m[31m (335ms)[0m
+  [32m  ✔[0m[90m should allow attesting with the correct value when accidentally sending too much[0m[31m (7199ms)[0m
+
+
+[92m [0m[32m 178 passing[0m[90m (6m)[0m
+
+----------------------------------|----------|----------|----------|----------|----------------|
+File                              |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+----------------------------------|----------|----------|----------|----------|----------------|
+ contracts/                       |      100 |      100 |      100 |      100 |                |
+  Common.sol                      |      100 |      100 |      100 |      100 |                |
+  EAS.sol                         |      100 |      100 |      100 |      100 |                |
+  IEAS.sol                        |      100 |      100 |      100 |      100 |                |
+  ISchemaRegistry.sol             |      100 |      100 |      100 |      100 |                |
+  ISemver.sol                     |      100 |      100 |      100 |      100 |                |
+  Indexer.sol                     |      100 |      100 |      100 |      100 |                |
+  SchemaRegistry.sol              |      100 |      100 |      100 |      100 |                |
+  Semver.sol                      |      100 |      100 |      100 |      100 |                |
+ contracts/eip1271/               |      100 |      100 |      100 |      100 |                |
+  EIP1271Verifier.sol             |      100 |      100 |      100 |      100 |                |
+ contracts/eip712/proxy/          |      100 |      100 |      100 |      100 |                |
+  EIP712Proxy.sol                 |      100 |      100 |      100 |      100 |                |
+ contracts/eip712/proxy/examples/ |      100 |      100 |      100 |      100 |                |
+  PermissionedEIP712Proxy.sol     |      100 |      100 |      100 |      100 |                |
+ contracts/resolver/              |      100 |      100 |      100 |      100 |                |
+  ISchemaResolver.sol             |      100 |      100 |      100 |      100 |                |
+  SchemaResolver.sol              |      100 |      100 |      100 |      100 |                |
+ contracts/resolver/examples/     |      100 |      100 |      100 |      100 |                |
+  AttestationResolver.sol         |      100 |      100 |      100 |      100 |                |
+  AttesterResolver.sol            |      100 |      100 |      100 |      100 |                |
+  DataResolver.sol                |      100 |      100 |      100 |      100 |                |
+  ExpirationTimeResolver.sol      |      100 |      100 |      100 |      100 |                |
+  PayingResolver.sol              |      100 |      100 |      100 |      100 |                |
+  RecipientResolver.sol           |      100 |      100 |      100 |      100 |                |
+  RevocationResolver.sol          |      100 |      100 |      100 |      100 |                |
+  TokenResolver.sol               |      100 |      100 |      100 |      100 |                |
+  ValueResolver.sol               |      100 |      100 |      100 |      100 |                |
+----------------------------------|----------|----------|----------|----------|----------------|
+All files                         |      100 |      100 |      100 |      100 |                |
+----------------------------------|----------|----------|----------|----------|----------------|
+
+> Istanbul reports written to ./coverage/ and ./coverage.json

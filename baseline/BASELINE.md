@@ -29,5 +29,16 @@ License: MIT. Package: @ethereum-attestation-service/eas-contracts v1.9.0.
   EAS is well unit-tested; it has no property-testing layer.
 
 ## Coverage ("before")
-- `pnpm test:coverage` (solidity-coverage, upstream .solcover.ts):
-  RESULTS PENDING — fill in from baseline/coverage-run-20260715.log
+- `pnpm test:coverage` (solidity-coverage, upstream .solcover.ts), run
+  2026-07-15 ~03:00 UTC, 178 passing (~6m under instrumentation):
+  **100% statements / 100% branches / 100% functions / 100% lines**,
+  every file, zero uncovered lines. Transcript: baseline/
+  coverage-run-20260715.log.
+- READ THIS RIGHT: coverage is already maxed. Line/branch coverage
+  measures whether code was *executed*, not whether its behavior is
+  *checked*. The suite has zero invariant/fuzz/property tests, so the
+  artifact's claim is sharper, not weaker: even a 100%-coverage suite
+  can leave properties unenforced — the invariant suite and the Gambit
+  mutation kill matrix measure that directly. Any surviving mutant is,
+  by construction, a behavior change that 100%-coverage unit tests
+  never noticed.
